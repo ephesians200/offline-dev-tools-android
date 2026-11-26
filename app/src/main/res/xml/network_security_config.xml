@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The REST client / ping / port tools talk to whatever host the user types, including plain-HTTP
+  dev servers, so cleartext stays allowed. It is declared here (one place) instead of as a blanket
+  manifest flag, and the REST tool prints a visible warning for http:// URLs.
+  To lock a build down, set cleartextTrafficPermitted="false" and add <domain-config> entries.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
